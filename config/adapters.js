@@ -27,7 +27,6 @@ module.exports.adapters = {
 
 	// MySQL is the world's most popular relational database.
 	// Learn more: http://en.wikipedia.org/wiki/MySQL
-
 	mysql: {
     module    : 'sails-mysql',
     host      : 'YOUR_MYSQL_SERVER_HOSTNAME_OR_IP_ADDRESS',
