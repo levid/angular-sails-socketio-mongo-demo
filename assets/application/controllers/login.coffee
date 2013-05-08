@@ -2,6 +2,9 @@
 
 angular.module("application").controller "LoginCtrl", ["$rootScope", "$scope", "$location", "SessionService", ($rootScope, $scope, $location, SessionService) ->
 
+  init = ->
+    $scope.user = ''
+
   loginHandler = (res) ->
     if SessionService.authorized(res)
       $scope.message = "Authorized!"
@@ -22,5 +25,7 @@ angular.module("application").controller "LoginCtrl", ["$rootScope", "$scope", "
 
   $scope.showMessage = ->
     $scope.message and $scope.message.length
+
+  init()
 
 ]
