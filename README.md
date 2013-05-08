@@ -1,4 +1,4 @@
-# Angular SailsJS Socket.io MongoDB Demo
+# AngularJS SailsJS Socket.io MongoDB Demo
 
 A simple CRUD example of using AngularJS with SailsJS. It uses Angular Resource to interface with the Sails REST Api
 and also includes some socket.io interaction on the front-end. There is even some basic authentication (non server side) and 
