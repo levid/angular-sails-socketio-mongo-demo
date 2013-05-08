@@ -27,6 +27,7 @@ module.exports.adapters = {
 
 	// MySQL is the world's most popular relational database.
 	// Learn more: http://en.wikipedia.org/wiki/MySQL
+
 	mysql: {
     module    : 'sails-mysql',
     host      : 'YOUR_MYSQL_SERVER_HOSTNAME_OR_IP_ADDRESS',
@@ -37,6 +38,6 @@ module.exports.adapters = {
 
   mongo: {
     module   : 'sails-mongo',
-    url      : 'mongodb://localhost:27017/portfolio'
+    url      : 'mongodb://localhost:27017/YOUR_DB_NAME'
   }
 };
