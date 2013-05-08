@@ -1,0 +1,28 @@
+{
+    "name": "isaac-portfolio-2013",
+    "private": true,
+    "version": "0.0.0-8",
+    "description": "a Sails application",
+    "dependencies": {
+        "sails": "0.8.895",
+        "angular": "0.0.4",
+        "coffee-script": "1.6.2",
+        "hamljs": "0.6.1",
+        "sails-mysql": "0.7.8",
+        "sails-mongo": "latest",
+        "socket.io": "0.9.14",
+        "bcrypt": "0.7.5"
+    },
+    "scripts": {
+        "start": "node .app.js",
+        "debug": "node debug .app.js"
+    },
+    "main": ".app.js",
+    "repository": "",
+    "author": "Isaac Wooten",
+    "license": "MIT",
+    "engines": {
+        "node": "0.8.x"
+    },
+    "subdomain": "levid-isaac-portfolio-2013"
+}

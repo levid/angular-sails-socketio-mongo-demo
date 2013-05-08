@@ -1,0 +1,30 @@
+<script type="text/ng-template" id="views/home.html">
+
+  <h1 id="header">
+      <a href="/">New Sails App</a>
+  </h1>
+  <div id="content">
+      <h2>It works!</h2>
+
+      <p>You've successfully installed the Sails Framework.</p>
+
+      <p>Sails is a modern, realtime MVC framework for the Node.js platform. <br/> <span class="highlight">It helps you build apps fast.</span></p>
+
+      <p>
+          <a href="https://github.com/balderdashy/sails/wiki" class="button"><span>Documentation</span></a>
+          <a href="https://github.com/balderdashy/sails/wiki/Changelog" class="button"><span>Changelog</span></a>
+      </p>
+  </div>
+
+  <div id="footer">
+      <a target="_blank" href="http://sailsjs.com" class="copyright">Built with Sails.js</a>
+  </div>
+
+  <br />
+  <div>
+    <label for"test"><h4>Test Angular Bindings</h4></label>
+    <input id="test" type="text" ng-model="data.message">
+    <h1>{{data.message}}</h1>
+  </div>
+
+</script>

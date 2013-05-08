@@ -1,0 +1,52 @@
+<script type="text/ng-template" id="views/users/index.html">
+  <div class="users view">
+    <h1>Users</h1>
+
+    <div data-ng-controller="UsersController">
+      <fieldset>
+        <legend>Total Users: {{ users.length }}</legend>
+        <table class="table table-hover table-striped table-bordered usersTable">
+            <thead>
+                <tr>
+                    <th data-ng-click="setOrder('id')">ID</th>
+                    <th data-ng-click="setOrder('name')">Name</th>
+                    <th data-ng-click="setOrder('email')">Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-hide="users && users.length > 0" class="error">
+                    <td colspan="4">
+                        <div class="text-center"><strong>No users found</strong></div>
+                    </td>
+                </tr>
+                <tr data-ng-repeat="user in users | orderBy:orderby:reverse">
+                    <td>
+                        {{ user.id }}
+                    </td>
+                    <td>
+                        {{ user.name }}
+                    </td>
+                    <td>
+                        {{ user.email }}
+                    </td>
+                    <td style="text-align: center;">
+                      <a class="btn btn-inverse" ng-href="#/users/show/{{user.id}}">Show</a>
+                    </td>
+                    <td style="text-align: center;">
+                      <a class="btn btn-info" ng-href="#/users/edit/{{user.id}}">Edit</a>
+                    </td>
+                    <td style="text-align: center;">
+                      <button class="btn btn-danger" data-ng-click="deleteUser(user)">X</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <a class="btn btn-primary" ng-href="#/users/new">New User</a>
+      </div>
+    </div>
+  </div>
+</script>
+

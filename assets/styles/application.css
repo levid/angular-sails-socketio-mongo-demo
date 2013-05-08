@@ -1,0 +1,153 @@
+/* app css stylesheet */
+@charset "UTF-8";
+
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+.sidebar-nav {
+  padding: 9px 0;
+}
+
+@media (max-width: 980px) {
+  /* Enable use of floated navbar text */
+  .navbar-text.pull-right {
+    float: none;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+.img-circle {
+  padding: 0px 5px 0px 0px;
+  position: relative;
+  z-index: 50;
+}
+
+.css-form input.ng-invalid.ng-dirty {
+  background-color: #f2dede;
+}
+
+.css-form input.ng-valid.ng-dirty {
+  background-color: #dff0d8;
+}
+
+.required {
+  color: red;
+}
+
+
+.input-help {
+  display: none;
+  position: relative;
+  z-index: 100;
+  top: 0px;
+  left: 0px;
+  width: 200px;
+  padding:10px;
+  background:#fefefe;
+  font-size:.875em;
+  border-radius:5px;
+  box-shadow:0 1px 3px #aaa;
+  border:1px solid #ddd;
+  opacity: 0.9;
+}
+
+.input-help h4 {
+  margin:0;
+  padding:0;
+  font-weight: normal;
+  font-size: 1.1em;
+}
+
+/* Always hide the input help when it's pristine */
+input.ng-pristine + .input-help {
+  display: none;
+}
+
+/* Hide the invalid box while the input has focus */
+.ng-invalid:focus + .input-help {
+  display: none;
+}
+
+/* Show a blue border while an input has focus, make sure it overrides everything else */
+/* Overriding Twitter Bootstrap cuz I don't agree we need to alarm the user while they're typing */
+input:focus {
+  color: black !important;
+  border-color: rgba(82, 168, 236, 0.8) !important;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6) !important;
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6) !important;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6) !important;
+}
+
+
+/* Show green border when stuff has been typed in, and its valid */
+.ng-dirty.ng-valid {
+  border-color:#3a7d34;
+}
+
+/* Show red border when stuff has been typed in, but its invalid */
+.ng-dirty.ng-invalid {
+  border-color:#ec3f41;
+}
+
+/* Show the help box once it has focus */
+.immediate-help:focus + .input-help {
+  display: block;
+}
+
+/* Immediate help should be red when pristine */
+.immediate-help.ng-pristine:focus + .input-help {
+  border-color:#ec3f41;
+}
+.immediate-help.ng-pristine:focus + .input-help::before {
+  color:#ec3f41;
+}
+
+/* Help hould be green when input is valid */
+.ng-valid + .input-help {
+  border-color:#3a7d34;
+}
+.ng-valid + .input-help::before {
+  color:#3a7d34;
+}
+
+/* Help should show and be red when invalid */
+.ng-invalid + .input-help {
+  display: block;
+  border-color: #ec3f41;
+}
+.ng-invalid + .input-help::before {
+  color: #ec3f41;
+}
+
+/* Style input help requirement bullets */
+.input-help ul {
+  list-style: none;
+  margin: 10px 0 0 0;
+}
+
+/* Default each bullet to be invalid with a red cross and text */
+.input-help li {
+  padding-left: 22px;
+  line-height: 24px;
+  color:#ec3f41;
+  background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAA1CAYAAABIkmvkAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAJwAAACcBKgmRTwAAABZ0RVh0Q3JlYXRpb24gVGltZQAxMC8wOS8xMlhq+BkAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzVxteM2AAAEA0lEQVRIie2WW2jbVRzHv//zT5rkn0ub61zaNdEiPqTC9EFRhtgJk63qg3Wr0806pswNiYgDUXxwyryCEB8UBevtaSCCDHQoboKyoVvVzfRmL2napU0mrdbl8s//dy4+dM1M28n64FsPnIdz+XzO75zfOXA0pRRWU7o/uS9FxOc+3/vlIQBgq4F3fHxvKuIPJ9cFwi9uTXU8BwDa1Uaw/aN7UusCkWRbPI5yxcTI2Bgy49kXrkrwwIedqYg/nGyLXwsJiYHBYWTGs7Cq5Kpt4cA3PXft+2rX40vhrt7OVLgplIzHYuBKoH9gCKMjGVE1LdfJl86YDAAOfN2ziZP4NODyv9/z2fanFuH7P9iWCjcFk/FYK4QSGLgEk0WeUy/3mQCgPXFs9xbBRW883NrssDvQN3hWcOLPEPGWiD94MBaPQymBoaERjI9mBSfu+fHwL+biItpjR3e6JFfloDeAaGQ9SpUycvlp6ExHJBKGYsDvgyMYH81KTsL90yuX4VoWdh3pMqSQpWBjAC3RZkgpYEkCFDA8NIqJ0UlFxI3Tr/5aB9elsau305BcloKBAFpjLeBSYGRwDBNjk4oTN06/dnYZXCcAgK1vbzYkl6VwOATihOzYlOLEjTOvn1sRXiYAgDsP32YIKUuWaXFOwtP3xrnqleAVBQBwy/M3GZy4+PnN3/4TvqJgNWVVj2lNsCZYE6wJ1gRrgv9dYAMAHHw2Bl2fUEpBVavtLPVW/78nVR/Zk4CupzVHA6zChSOK0yHv0S8GFyK4BMPhAJxOgLE03/9kYhE2dz+agKaldY8bDaEQ7D5ft7Roy+UIlCooy5LQdaZ5vVBEgGmmrT172yVxaIylmdcDm9cHc2oK1Zm8kETvLAo0pRRk8mmnEqKouVw68zVCzP8F/uccFHHoXi/sjT6Y53Mw83mhOHn8J7416wQAwPftd0ouiswwdJu/CRASkBKQAmYuBzNfWIC/O173W6llwfbeu6Yi8tDsrAQJYGICyGQAIWDO5KUkaxlcJwAASdSmaWAQHCACOAc4h6YzJi1qWymNNUHlwYcT0JDWXQbACYhGgeh6gHM4Ghuh2/R0YePNiaUCTSmFcvdDCY1paZvhht3nQ2VmGmahICSR5vQHmDt6DcozeZSnp2FdLLZHhwdq94SVd+xMaJqWtrkM2L1uVHILpy0t8igidymXExfHMzBCQbhCIdga7Onz8etqkdgkUYTZbYCSqORmULlQEIq4J3jyexMA8jdu9BRzuaKyLN3udkNjDEqICID+2hbm797Wwez24/T3vJTE3aFTP9Sd9vT1NziVEMUGr1c35+Y2b5jKnqgNKqWglMLspjs6/rj1dudie2mdao07J5s3dCzt/werJTyI1yYqpQAAAABJRU5ErkJggg==) no-repeat  2px -34px;
+}
+
+/* Set to green check and text when valid */
+.input-help li.valid {
+  color:#3a7d34;
+  background-position: 2px 6px;
+}
+
+/* Set submit button */
+form .btn, form.ng-valid .btn[disabled] {
+  display: none;
+}
+form.ng-invalid .btn[disabled], form.ng-valid .btn {
+  display: inline-block;
+}
+
+
+

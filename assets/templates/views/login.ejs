@@ -1,0 +1,48 @@
+<script type="text/ng-template" id="views/login.html">
+
+  <h1>Sign In</h1>
+
+  <form id="login-form" ng-submit="login()" name="loginForm" class="css-form" novalidate>
+    <fieldset>
+      <legend>User Information</legend>
+
+      <div class="alert alert-error" data-ng-show="showMessage(message)">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{message}}
+      </div>
+
+      <div class="control-group">
+        <label class="control-label" for="inputEmail">
+          <span class="required">*</span>
+          Email Address
+        </label>
+        <div class="controls">
+          <input type="email" ng-model="user.email" required autofocus />
+          <span class="error" ng-show="myForm.list.$error.REQUIRED">Required!</span>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label" for="inputPassword">
+          <span class="required">*</span>
+          Password
+        </label>
+        <div class="controls">
+          <input type="password" ng-model="user.password" required />
+        </div>
+      </div>
+
+      <div class="control-group">
+        <div class="controls">
+          <label class="checkbox">
+            <input type="checkbox"> Remember me
+          </label>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-inverse" ng-disabled="loginForm.$invalid">Sign In</button>
+          </div>
+        </div>
+      </div>
+
+    </fieldset>
+  </form>
+</script>

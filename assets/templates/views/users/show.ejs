@@ -1,0 +1,29 @@
+<script type="text/ng-template" id="views/users/show.html">
+  <div class="users show view">
+    <h1>User</h1>
+
+    <div data-ng-controller="UsersController">
+      <fieldset>
+        <legend>User Information</legend>
+        <p>
+          <b>Id:</b>
+          {{user.id}}
+        </p>
+
+        <p>
+          <b>Name:</b>
+          {{user.name}}
+        </p>
+
+        <p>
+          <b>Email:</b>
+          {{user.email}}
+        </p>
+
+        <a class="btn btn-info" ng-href="#/users/edit/{{user.id}}">Edit</a>
+        <a class="btn btn-primary" ng-href="#/users">Back</a>
+      </fieldset>
+    </div>
+  </div>
+</script>
+

@@ -1,0 +1,67 @@
+<script type="text/ng-template" id="views/users/partials/_new_form.html">
+  <div data-ng-controller="UsersController">
+    <form id="new-user-form" ng-submit="addUser()" name="newUserForm" class="css-form" novalidate>
+      <fieldset>
+        <legend>User Information</legend>
+        <span class="error" ng-show="myForm.list.$error.REQUIRED">Required!</span>
+        <div ng-show="form.uEmail.$dirty && form.uEmail.$invalid">Invalid:
+          <span ng-show="form.uEmail.$error.required">Tell us your email.</span>
+          <span ng-show="form.uEmail.$error.email">This is not a valid email.</span>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="name">
+            <span class="required">*</span>
+            Name:
+          </label>
+          <div class="controls">
+            <input type="text" id="name" data-ng-model="inputData.name" placeholder="Full Name" required />
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="email">
+            <span class="required">*</span>
+            Email Address:
+          </label>
+          <div class="controls">
+            <input type="email" data-ng-model="inputData.email" placeholder="Email Address" required />
+
+            <div class="input-help">
+              <h4>This is not a valid email address.</h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="password">
+            <span class="required">*</span>
+            Password:
+          </label>
+          <div class="controls">
+            <input id="inputPassword" type="password" data-ng-model="inputData.password" class="immediate-help" password-validate required  />
+
+            <div class="input-help">
+              <h4>Password must meet the following requirements:</h4>
+              <ul>
+                <li ng-class="pwdHasLetter">At least <strong>one letter</strong></li>
+                <li ng-class="pwdHasNumber">At least <strong>one number</strong></li>
+                <li ng-class="pwdValidLength">At least <strong>8 characters long</strong></li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="control-group">
+          <div class="controls">
+            <div class="form-actions">
+              <button type="submit" class="btn btn-inverse" ng-disabled="newUserForm.$invalid">Create User</button>
+            </div>
+          </div>
+        </div>
+
+      </fieldset>
+    </form>
+  </div>
+</script>

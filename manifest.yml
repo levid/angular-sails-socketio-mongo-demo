@@ -1,0 +1,19 @@
+---
+applications:
+  .:
+    name: levid
+    framework:
+      name: standalone
+      info:
+        mem: 64M
+        description: Standalone Application
+        exec: 
+    runtime: node08
+    command: start
+    infra: aws
+    url: levid.aws.af.cm
+    mem: 1G
+    instances: 1
+    services:
+      portfolio:
+        type: mysql

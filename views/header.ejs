@@ -1,0 +1,35 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+
+    <div class="container-fluid">
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <gravatar email="authenticatedUser.email" size="200" class="img-circle pull-left" style="width: 40px; height: 40px"></gravatar>
+      <a class="brand" href="#">Angular Sails Socket.io Demo</a>
+
+      <div class="nav-collapse collapse">
+        <div class="authStatus" data-ng-controller="AuthController">
+          <p class="navbar-text pull-right" data-ng-show="authenticatedUser">
+            Logged in as <a ng-href="#/users/show/{{authenticatedUser.id}}" target="_self" class="navbar-link">{{ authenticatedUser.name }}</a>
+          </p>
+        </div>
+
+        <div data-ng-controller="UsersController"></div>
+
+        <ul class="nav" data-ng-controller="NavbarController">
+          <li data-ng-class="{'active':getClass('/')}"><a ng-href="#/">Home</a></li>
+          <li data-ng-class="{'active':getClass('/login')}"><a ng-href="#/login">Login</a></li>
+          <li data-ng-class="{'active':getClass('/view1')}"><a ng-href="#/view1">View1</a></li>
+          <li data-ng-class="{'active':getClass('/view2')}"><a ng-href="#/view2">View2</a></li>
+          <li data-ng-class="{'active':getClass('/users')}"><a ng-href="#/users">Users</a></li>
+          <li data-ng-class="{'active':getClass('/remotepartial')}"><a ng-href="#/remotepartial">Remote Partial</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
