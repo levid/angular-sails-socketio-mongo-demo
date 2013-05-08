@@ -11,12 +11,12 @@
                     <th data-ng-click="setOrder('id')">ID</th>
                     <th data-ng-click="setOrder('name')">Name</th>
                     <th data-ng-click="setOrder('email')">Email</th>
-                    <th>Actions</th>
+                    <th colspan="3" style="text-align: center;">Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <tr data-ng-hide="users && users.length > 0" class="error">
-                    <td colspan="4">
+                    <td colspan="6">
                         <div class="text-center"><strong>No users found</strong></div>
                     </td>
                 </tr>
