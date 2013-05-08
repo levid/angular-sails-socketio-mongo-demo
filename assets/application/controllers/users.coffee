@@ -171,7 +171,7 @@ Application.Controllers.controller "UsersController", ["$rootScope", "$scope", "
           email:    $scope.inputData.email    if $scope.inputData.email.length
           password: $scope.inputData.password if $scope.inputData.password.length
 
-        user.$save(user,
+        User.save(user,
           success = (data, status, headers, config) ->
             $scope.message  = "New user added!"
             $scope.status   = 200
@@ -190,7 +190,7 @@ Application.Controllers.controller "UsersController", ["$rootScope", "$scope", "
           password: $scope.inputData.password
         }
 
-        $scope.user.$update($scope.user,
+        User.update($scope.user,
           success = (data, status, headers, config) ->
             $scope.message  = "User updated!"
             $scope.status   = 200
