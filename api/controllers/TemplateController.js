@@ -39,7 +39,11 @@ module.exports = {
 
 var io = require('socket.io').listen(1336);
 io.sockets.on('connection', function (socket) {
+  var numberOfSockets = Object.keys(io.connected).length;
+  socket.emit('connectedUsers', { count: numberOfSockets });
+  socket.broadcast.emit('connectedUsers', { count: numberOfSockets });
   socket.setMaxListeners(0);
+
   socket.emit('news', { hello: 'world' });
   socket.emit('init', { data: 'what' });
   socket.on('my other event', function (data) {
@@ -61,9 +65,10 @@ io.sockets.on('connection', function (socket) {
     socket.broadcast.emit('onUserUpdated', user);
   });
 
-  var numberOfSockets = Object.keys(io.connected).length;
-  socket.emit('connectedUsers', { count: numberOfSockets });
-  socket.broadcast.emit('connectedUsers', { count: numberOfSockets });
+  socket.on('disconnect', function () {
+    socket.emit('connectedUsers', { count: numberOfSockets-1 });
+    socket.broadcast.emit('connectedUsers', { count: numberOfSockets-1 });
+  });
 
   socket.removeListener("connect", function(){});
   socket.removeListener("deleteUser", function(){});
