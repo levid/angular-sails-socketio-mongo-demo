@@ -1,8 +1,12 @@
 'use strict'
 
-Application.Controllers.controller "UsersController", ["$rootScope", "$scope", "$location", "usersService", "$socket", "User", "SessionService", "$route", "$routeParams", ($rootScope, $scope, $location, usersService, $socket, User, SessionService, $route, $routeParams) ->
-  # Make this class accessible to the window object
+Application.Controllers.controller "UsersController", ["$rootScope", "$scope", "$location", "$socket", "User", "SessionService", "$route", "$routeParams", ($rootScope, $scope, $location, $socket, User, SessionService, $route, $routeParams) ->
+
+  # Users class that is accessible by the window object
   class UsersController
+
+    #### It's always nice to have a constructor to keep things organized
+    #
     constructor: () ->
       @initScopedMethods()
 
@@ -127,9 +131,20 @@ Application.Controllers.controller "UsersController", ["$rootScope", "$scope", "
     #   )
 
 
+    #### Get current scope
+    #
+    # This method acts as a public static method to grab the
+    # current $scope outside of this class.
+    # (ex: socket.coffee)
+    #
     getScope: () ->
       return $scope
 
+    #### The delete action
+    #
+    # - The $scope object must be passed in to the method
+    #   since it is a public static method
+    #
     initScopedMethods: () ->
       $scope.showMessage = ->
         $scope.message && $scope.message.length
@@ -198,56 +213,6 @@ Application.Controllers.controller "UsersController", ["$rootScope", "$scope", "
             console.log error
           )
         false
-
-
-      # users = usersService.getUsers($scope, (data, $scope) ->
-      #   $scope.$apply ->
-      #     $scope.users = data
-      # )
-
-      # $socket.on "onUserAdded", (data) ->
-      #   console.log "onUserAdded called", data
-      #   $scope.$apply ->
-      #     $scope.users.push
-      #       id: data.id
-      #       name: data.name
-      #       email: data.email
-
-      # $socket.on "onUserDeleted", (data) ->
-      #   console.log "onUserDeleted called", data
-      #   i = $scope.users.length - 1
-
-      #   while i >= 0
-      #     if i is parseInt(data.id)
-      #       $scope.$apply ->
-      #         $scope.users.splice i, 1
-
-      #       break
-      #     i--
-
-      # $scope.addUser = ->
-      #   name = $scope.inputData.name
-      #   email = $scope.inputData.email
-      #   password = $scope.inputData.password
-      #   usersService.insertUser name, email, (data) ->
-      #     userData =
-      #       id: data.id
-      #       name: data.name
-      #       email: data.email
-      #       password: data.password
-
-      #     $scope.$apply ->
-      #       $scope.users.push userData
-      #       $socket.emit "addUser", userData
-
-      #   $scope.inputData.name = ""
-      #   $scope.inputData.email = ""
-      #   $scope.inputData.password = ""
-
-      # $scope.deleteUser = (user) ->
-      #   usersService.deleteUser user.id, ->
-      #     $scope.users = _.difference($scope.users, user)
-      #     $socket.emit "deleteUser", user
 
   window.UsersController = new UsersController()
 
