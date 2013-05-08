@@ -196,6 +196,8 @@ Application.Controllers.controller "UsersController", ["$rootScope", "$scope", "
             $scope.status   = 200
             $socket.emit "updateUser", data # Broadcast to connected subscribers that a user has been updated
             $location.path('/users') # Redirect to users index
+            $rootScope.user = data
+
           , error = (data, status, headers, config) ->
             $scope.message  = data.errors
             $scope.status   = status

@@ -8,13 +8,18 @@
         <span class="icon-bar"></span>
       </button>
 
-      <gravatar email="authenticatedUser.email" size="200" class="img-circle pull-left" style="width: 40px; height: 40px"></gravatar>
+      <gravatar email="user.email" data-ng-model="user" size="200" class="img-circle pull-left" style="width: 40px; height: 40px"></gravatar>
       <a class="brand" href="#">Angular Sails Socket.io Demo</a>
 
       <div class="nav-collapse collapse">
-        <div class="authStatus" data-ng-controller="AuthController">
-          <p class="navbar-text pull-right" data-ng-show="authenticatedUser">
-            Logged in as <a ng-href="#/users/show/{{authenticatedUser.id}}" target="_self" class="navbar-link">{{ authenticatedUser.name }}</a>
+        <div class="authStatus">
+          <p class="navbar-text pull-right" data-ng-show="user">
+            Logged in as <a ng-href="#/users/show/{{user.id}}" target="_self" class="navbar-link">{{ user.name }}</a>
+            &nbsp;|&nbsp; <a href="" ng-controller="LoginCtrl" ng-click="logout()" class="navbar-link">Sign out</a>
+          </p>
+
+          <p class="navbar-text pull-right" data-ng-hide="user">
+            <a ng-href="#/login" class="navbar-link">Sign in</a>
           </p>
         </div>
 
@@ -22,7 +27,6 @@
 
         <ul class="nav" data-ng-controller="NavbarController">
           <li data-ng-class="{'active':getClass('/')}"><a ng-href="#/">Home</a></li>
-          <li data-ng-class="{'active':getClass('/login')}"><a ng-href="#/login">Login</a></li>
           <li data-ng-class="{'active':getClass('/view1')}"><a ng-href="#/view1">View1</a></li>
           <li data-ng-class="{'active':getClass('/view2')}"><a ng-href="#/view2">View2</a></li>
           <li data-ng-class="{'active':getClass('/users')}"><a ng-href="#/users">Users</a></li>

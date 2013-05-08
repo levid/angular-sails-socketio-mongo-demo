@@ -49,7 +49,7 @@ angular.module('application.services')
         user,
         function(res){
           _user = (res.user || {});
-          _user.authorized = res.unauthorized;
+          _user.authorized = res.authorized;
           if(angular.isFunction(resultHandler)) {
             resultHandler(res);
           }

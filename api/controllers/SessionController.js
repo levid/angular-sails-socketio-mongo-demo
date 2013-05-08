@@ -23,7 +23,7 @@ var SessionController = {
 		});
 	},
 	logout: function(req,res) {
-
+    return res.json({ authorized: false });
 	}
 
 };
