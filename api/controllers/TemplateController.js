@@ -61,6 +61,10 @@ io.sockets.on('connection', function (socket) {
     socket.broadcast.emit('onUserUpdated', user);
   });
 
+  var numberOfSockets = Object.keys(io.connected).length;
+  socket.emit('connectedUsers', { count: numberOfSockets });
+  socket.broadcast.emit('connectedUsers', { count: numberOfSockets });
+
   socket.removeListener("connect", function(){});
   socket.removeListener("deleteUser", function(){});
   socket.removeListener("addUser", function(){});

@@ -9,7 +9,12 @@
       </button>
 
       <gravatar email="user.email" data-ng-model="user" size="200" class="img-circle pull-left" style="width: 40px; height: 40px"></gravatar>
-      <a class="brand" href="#">Angular Sails Socket.io Demo</a>
+      <a class="brand" href="#">
+        Angular Sails Socket.io Demo
+        <span data-ng-show="connectedUsers.count">(
+          <ng-pluralize count="connectedUsers.count" when="{'0': 'None viewing', 'one': '1 viewing', 'other': '{} viewing'}"></ng-pluralize>
+          )</span>
+      </a>
 
       <div class="nav-collapse collapse">
         <div class="authStatus">
