@@ -1,3 +1,5 @@
+'use strict'
+
 # Socket service
 Application.Services.factory "$socket", ["$rootScope", "User", ($rootScope, User) ->
 

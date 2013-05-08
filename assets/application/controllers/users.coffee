@@ -3,6 +3,10 @@
 Application.Controllers.controller "UsersController", ["$rootScope", "$scope", "$location", "$socket", "User", "SessionService", "$route", "$routeParams", ($rootScope, $scope, $location, $socket, User, SessionService, $route, $routeParams) ->
 
   # Users class that is accessible by the window object
+  #
+  # @todo add a notifications handler
+  # @todo add a proper error handler
+  #
   class UsersController
 
     #### It's always nice to have a constructor to keep things organized
@@ -140,10 +144,9 @@ Application.Controllers.controller "UsersController", ["$rootScope", "$scope", "
     getScope: () ->
       return $scope
 
-    #### The delete action
+    #### Scoped methods
     #
-    # - The $scope object must be passed in to the method
-    #   since it is a public static method
+    # These are helper methods accessible to the angular user views
     #
     initScopedMethods: () ->
       $scope.showMessage = ->
@@ -164,40 +167,38 @@ Application.Controllers.controller "UsersController", ["$rootScope", "$scope", "
 
       $scope.addUser = ->
         user = new User
-          name: $scope.inputData.name if $scope.inputData.name.length
-          email: $scope.inputData.email if $scope.inputData.email.length
+          name:     $scope.inputData.name     if $scope.inputData.name.length
+          email:    $scope.inputData.email    if $scope.inputData.email.length
           password: $scope.inputData.password if $scope.inputData.password.length
 
         user.$save(user,
           success = (data, status, headers, config) ->
-            $scope.message = "New user added!"
-            $scope.status = 200
-            $socket.emit "addUser", data
-            $location.path('/users')
+            $scope.message  = "New user added!"
+            $scope.status   = 200
+            $socket.emit "addUser", data # Broadcast to connected subscribers that a user has been added
+            $location.path('/users') # Redirect to users index
           , error = (data, status, headers, config) ->
-            $scope.message = data.errors
-            $scope.status = status
-            # angular.element(".errors").html(data.errors.join("<br>")).slideDown()
+            $scope.message  = data.errors
+            $scope.status   = status
         )
 
       $scope.updateUser = (user) ->
         user = {
-          id: $scope.user.id
-          name: $scope.user.name
-          email: $scope.user.email
+          id:       $scope.user.id
+          name:     $scope.user.name
+          email:    $scope.user.email
           password: $scope.inputData.password
         }
 
         $scope.user.$update($scope.user,
           success = (data, status, headers, config) ->
-            $scope.message = "User updated!"
-            $scope.status = 200
-            $socket.emit "updateUser", data
-            $location.path('/users')
+            $scope.message  = "User updated!"
+            $scope.status   = 200
+            $socket.emit "updateUser", data # Broadcast to connected subscribers that a user has been updated
+            $location.path('/users') # Redirect to users index
           , error = (data, status, headers, config) ->
-            $scope.message = data.errors
-            $scope.status = status
-            # angular.element(".errors").html(data.errors.join("<br>")).slideDown()
+            $scope.message  = data.errors
+            $scope.status   = status
         )
 
       $scope.deleteUser = (user) ->
@@ -208,7 +209,7 @@ Application.Controllers.controller "UsersController", ["$rootScope", "$scope", "
           , (success) ->
             console.log success
             $scope.users = _.difference($scope.users, user)
-            $socket.emit "deleteUser", user
+            $socket.emit "deleteUser", user # Broadcast to connected subscribers that a user has been deleted
           , (error) ->
             console.log error
           )
