@@ -19,6 +19,7 @@ You will want to configure your Mongo DB in config/adapters.js
     }
     
 Then to start the server on port 1337 run:
+
     sails lift
 
 Partials (inlined)
