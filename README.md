@@ -1,7 +1,7 @@
 # Angular + Sails + Socket.io + MongoDB Demo
 
 A simple CRUD example of using AngularJS with SailsJS. It uses Angular Resource to interface with the Sails REST back-end Api
-and also includes some socket.io interaction on the front-end. There is some basic authentication (non server side) and also 
+and also includes some socket.io interaction on the front-end. There is some basic authentication and also 
 a few nifty directives for loading gravatars via email address and form password validation. Enjoy!
 
 Install
