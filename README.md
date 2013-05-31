@@ -9,7 +9,7 @@ Install
 
     git clone git@github.com:levid/angular-sails-socketio-mongo-demo.git
     cd angular-sails-socketio-mongo-demo
-    npm-install
+    npm install
     
 You will want to configure your Mongo DB in config/adapters.js
     
