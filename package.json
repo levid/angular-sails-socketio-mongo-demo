@@ -9,7 +9,7 @@
         "coffee-script": "1.6.2",
         "hamljs": "0.6.1",
         "sails-mysql": "0.7.8",
-        "sails-mongo": "latest",
+        "sails-mongo": "0.0.3",
         "socket.io": "0.9.14",
         "bcrypt": "0.7.5"
     },
